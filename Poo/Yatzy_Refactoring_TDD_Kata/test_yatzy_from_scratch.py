@@ -25,3 +25,11 @@ def test_fours(inyector):
     # No puedo testear con fixtures = inyeccion de dependencias
     # los metodos estaticos como chance()
     assert valorEsperado == inyector.fours()
+
+def test_score_pair():
+    # iterar sobre *args evita codigo cableado a 5 argumentos
+    assert 6 == Yatzy.score_pair(1, 1, 3, 3, 5)
+    assert 2 == Yatzy.score_pair(1, 1, 3, 4, 6)
+    assert 10 == Yatzy.score_pair(4, 5, 5, 6, 1)
+
+

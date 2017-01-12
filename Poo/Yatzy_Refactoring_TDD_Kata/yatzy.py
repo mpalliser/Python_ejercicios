@@ -2,59 +2,39 @@ class Yatzy:
 
     @staticmethod
     def chance(*dice):
-        total = 0
+        score = 0
         for die in dice:
-            total = total + die
-        return total
+            score = score + die
+        return score
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
+    def yatzy(*dice):
+        if dice.count(dice[0]) == 5:
+            return 50
         return 0
-    
+        
     @staticmethod
     def ones(*dice):
-        totalOnes = 0
+        '''
+        ONE = 1
+        return dice.count(ONE) *ONE
+        '''
+        total_ones = 0
         for die in dice:
             if (die == 1):
-                totalOnes += 1
-        return totalOnes
+                total_ones += 1
+        return total_ones
     
 
     @staticmethod
-    def twos( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 2):
-             sum += 2
-        if (d2 == 2):
-             sum += 2
-        if (d3 == 2):
-             sum += 2
-        if (d4 == 2):
-             sum += 2
-        if (d5 == 2):
-             sum += 2
-        return sum
+    def twos(*dice):
+        TWO = 2
+        return dice.count(TWO) * TWO
     
     @staticmethod
-    def threes( d1,  d2,  d3,  d4,  d5):
-        s = 0
-        if (d1 == 3):
-             s += 3
-        if (d2 == 3):
-             s += 3
-        if (d3 == 3):
-             s += 3
-        if (d4 == 3):
-             s += 3
-        if (d5 == 3):
-             s += 3
-        return s
+    def threes( *dice):
+        THREE = 3
+        return dice.count(THREE) * THREE
     
 
     def __init__(self, d1, d2, d3, d4, _5):
@@ -90,38 +70,39 @@ class Yatzy:
         return sum
     
     @staticmethod
-    def score_pair( d1,  d2,  d3,  d4,  d5):
-        counts = [0]*6
-        counts[d1-1] += 1
-        counts[d2-1] += 1
-        counts[d3-1] += 1
-        counts[d4-1] += 1
-        counts[d5-1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6-at-1] == 2):
-                return (6-at)*2
+    def pair(*dice):
+        total_score_pair = 0
+        for die in dice:
+            if dice.count(die) >= 2 and die > total_score_pair /2:
+                total_score_pair = die * 2
+        return total_score_pair
+        '''
+        PAIR=2
+        for numero in range(6, 0, -1):
+            if dice.count(numero) >=2:
+                return PAIR * numero
         return 0
+        '''
     
     @staticmethod
-    def two_pair( d1,  d2,  d3,  d4,  d5):
-        counts = [0]*6
-        counts[d1-1] += 1
-        counts[d2-1] += 1
-        counts[d3-1] += 1
-        counts[d4-1] += 1
-        counts[d5-1] += 1
-        n = 0
+    def two_pair( *dice):
+        PAIR = 2
+        pairs = 0
         score = 0
-        for i in range(6):
-            if (counts[6-i-1] >= 2):
-                n = n+1
-                score += (6-i)
-                    
-        if (n == 2):
-            return score * 2
+        for die in dice:
+            if dice.count(die) == PAIR:
+                pairs += 1  
+                score = score + die 
+        if pairs == 2:
+            return score
         else:
             return 0
+
+            
+
+            
+
+
     
     @staticmethod
     def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
