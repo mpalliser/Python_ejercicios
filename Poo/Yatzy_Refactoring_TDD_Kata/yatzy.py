@@ -90,10 +90,10 @@ class Yatzy:
         pairs = 0
         score = 0
         for die in dice:
-            if dice.count(die) == PAIR:
+            if dice.count(die) >= PAIR:
                 pairs += 1  
                 score = score + die 
-        if pairs == 2:
+        if pairs >= 4:
             return score
         else:
             return 0
