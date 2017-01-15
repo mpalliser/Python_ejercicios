@@ -96,3 +96,27 @@ def test_small_straight(*dice):
     assert 0 == Yatzy.smallStraight(2,3,4,5,6)
     assert 0 == Yatzy.smallStraight(1,2,2,3,4)
     assert 0 == Yatzy.smallStraight(3,4,5,6,1)
+
+def test_large_straight(*dice):
+    '''
+    When placed on "large straight", if the dice read2,3,4,5,6,
+    the player scores 20 (the sum of all the dice).
+    '''
+    assert 20 == Yatzy.largeStraight(2,3,4,5,6)
+    assert 20 == Yatzy.largeStraight(3,4,5,6,2,1)
+    assert 0 == Yatzy.largeStraight(2,2,3,4,5)
+    assert 0 == Yatzy.largeStraight(1,2,3,4,5)
+
+def test_full_house(*dice):
+    '''
+    If the dice are two of a kind and three of a kind, the player scores the sum of all the dice.
+    '''
+    assert 8 == Yatzy.fullHouse(1,1,2,2,2)
+    assert 0 == Yatzy.fullHouse(2,2,3,3,4)
+    assert 0 == Yatzy.fullHouse(4,4,4,4,4)
+    assert 0 == Yatzy.fullHouse(1,1,2,3,4)
+    assert 0 == Yatzy.fullHouse(1,2,3,4,6)
+    assert 0 == Yatzy.fullHouse(1,1,3,5,2)
+    assert 0 == Yatzy.fullHouse(1,5,2,2,2)
+
+
