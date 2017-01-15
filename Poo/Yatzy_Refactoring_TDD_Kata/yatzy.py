@@ -92,7 +92,7 @@ class Yatzy:
         for numero in range(1, 7, 1):
             if dados.count(numero) >= PAR:
                 parejas += 1  
-                puntuacion = puntuacion + numero*PAR
+                puntuacion += numero*PAR
         if parejas == PAR:
             return puntuacion
         return 0
