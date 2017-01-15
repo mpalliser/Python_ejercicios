@@ -85,50 +85,37 @@ class Yatzy:
         '''
     
     @staticmethod
-    def two_pair( *dados):
-        PAR = 2
-        parejas = 0
-        puntuacion = 0
-        for numero in range(1, 7, 1):
-            if dados.count(numero) >= PAR:
-                parejas += 1  
-                puntuacion += numero*PAR
-        if parejas == PAR:
-            return puntuacion
+    def two_pair( *dice):
+        PAIR = 2
+        pairs = 0
+        score = 0
+        for number in range(1, 7, 1):
+            if dice.count(number) >= PAIR:
+                pairs += 1  
+                score += number*PAIR
+        if pairs == PAIR:
+            return score
         return 0
 
-            
 
-            
-
-
-    
     @staticmethod
-    def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[_1-1] += 1
-        tallies[_2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i+1) * 4
-        return 0
+    def four_of_a_kind( *dice):
+        POKER = 4
+        score = 0
+        for number in range(1, 7, 1):
+            if dice.count(number) >= POKER: 
+                score += number * POKER
+        return score
     
 
     @staticmethod
-    def three_of_a_kind( d1,  d2,  d3,  d4,  d5):
-        t = [0]*6
-        t[d1-1] += 1
-        t[d2-1] += 1
-        t[d3-1] += 1
-        t[d4-1] += 1
-        t[d5-1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i+1) * 3
-        return 0
+    def three_of_a_kind(*dice):
+        THREE = 3
+        score = 0
+        for number in range(1, 7, 1):
+            if dice.count(number) >= THREE: 
+                score += number * THREE
+        return score
     
 
     @staticmethod
