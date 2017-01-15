@@ -87,3 +87,12 @@ def test_four_of_a_kind():
 
   
 
+def test_small_straight(*dice):
+    '''
+    When placed on "small straight", if the dice read
+    1,2,3,4,5, the player scores 15 (the sum of all the dice).
+    '''
+    assert 15 == Yatzy.smallStraight(1,2,3,4,5)
+    assert 0 == Yatzy.smallStraight(2,3,4,5,6)
+    assert 0 == Yatzy.smallStraight(1,2,2,3,4)
+    assert 0 == Yatzy.smallStraight(3,4,5,6,1)
