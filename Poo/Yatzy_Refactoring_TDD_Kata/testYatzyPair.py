@@ -62,6 +62,8 @@ def test_two_pair():
     #player scores the sum of these dice. 
     assert 8 == Yatzy.two_pair(1,1,2,3,3)
     assert 0 == Yatzy.two_pair(1,1,2,3,4)
+    assert 0 == Yatzy.two_pair(1,4,2,5,3)
     assert 6 == Yatzy.two_pair(1,1,2,2,2)
+    assert 0 == Yatzy.two_pair(1,3,3,3,3)
   
 

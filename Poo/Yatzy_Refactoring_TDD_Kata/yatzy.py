@@ -85,18 +85,17 @@ class Yatzy:
         '''
     
     @staticmethod
-    def two_pair( *dice):
-        PAIR = 2
-        pairs = 0
-        score = 0
-        for die in dice:
-            if dice.count(die) >= PAIR:
-                pairs += 1  
-                score = score + die 
-        if pairs >= 4:
-            return score
-        else:
-            return 0
+    def two_pair( *dados):
+        PAR = 2
+        parejas = 0
+        puntuacion = 0
+        for numero in range(1, 7, 1):
+            if dados.count(numero) >= PAR:
+                parejas += 1  
+                puntuacion = puntuacion + numero*PAR
+        if parejas == PAR:
+            return puntuacion
+        return 0
 
             
 
