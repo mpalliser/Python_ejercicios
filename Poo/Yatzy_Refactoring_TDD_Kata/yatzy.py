@@ -1,5 +1,8 @@
 class Yatzy:
 
+    def __init__(self, *dice):
+        self.dice = list(dice)
+
     @staticmethod
     def chance(*dice):
         score = 0
@@ -9,9 +12,9 @@ class Yatzy:
 
     @staticmethod
     def yatzy(*dice):
-        if dice.count(dice[0]) == 5:
-            return 50
-        return 0
+        if dice.count(dice[0]) != 5:
+            return 0
+        return 50
         
     @staticmethod
     def ones(*dice):
@@ -35,39 +38,21 @@ class Yatzy:
     def threes( *dice):
         THREE = 3
         return dice.count(THREE) * THREE
-    
 
-    def __init__(self, d1, d2, d3, d4, _5):
-        self.dice = [0]*5
-        self.dice[0] = d1
-        self.dice[1] = d2
-        self.dice[2] = d3
-        self.dice[3] = d4
-        self.dice[4] = _5
     
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4): 
-                sum += 4
-        return sum
+        FOUR = 4
+        return self.dice.count(FOUR) *FOUR
     
 
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+        FIVE = 5
+        return self.dice.count(FIVE) *FIVE
     
 
     def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)): 
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+        SIX = 6
+        return self.dice.count(SIX) *SIX
     
     @staticmethod
     def pair(*dice):
